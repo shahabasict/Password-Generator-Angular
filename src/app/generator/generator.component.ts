@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ClipboardModule,Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-generator',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,ClipboardModule],
   templateUrl: './generator.component.html',
   styleUrl: './generator.component.css'
 })
 export class GeneratorComponent {
+
 
 generatedPassword:string = '';
 passwordLength:number=10;
@@ -51,6 +53,16 @@ generatePassword() {
     }
 
   }
+
+  constructor(private clipboard: Clipboard) {}
+
+  
+    
+  
+copyToClipboard(): void {
+  this.clipboard.copy(this.generatedPassword);
+}
+  
 
 
 }

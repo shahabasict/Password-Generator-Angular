@@ -5,7 +5,7 @@
 
     <div class="password-display">
         <input type="text" [value]="generatedPassword" readonly>
-        <button class="copy-button">
+        <button class="copy-button" (click)="copyToClipboard()">
             <i class="fas fa-copy"></i>
         </button>
       </div>
